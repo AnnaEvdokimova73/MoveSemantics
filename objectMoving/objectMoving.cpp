@@ -1,11 +1,14 @@
 ﻿#include <iostream>
 #include <vector>
 
-void moveVectors(std::vector<std::string>& vecLeft, std::vector<std::string>& vecRight)
+template<class T>
+void moveVectors(std::vector<T>& vecLeft, std::vector<T>& vecRight)
 {
-    std::vector<std::string> temp = std::move(vecLeft);
+    std::vector<T> temp = std::move(vecLeft);
     vecLeft = std::move(vecRight);
     vecRight = std::move(temp);
+    // or
+    // std::swap(vecLeft, vecRight);
 }
 
 int main()

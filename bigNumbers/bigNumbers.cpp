@@ -40,13 +40,13 @@ public:
     }
 
     // конструтор перемещения
-    BigInteger(BigInteger&& other)
+    BigInteger(BigInteger&& other) noexcept
     {
         _vecInt = std::move(other._vecInt);
     }
 
     // перемещающий оператор присваивания
-    BigInteger& operator=(BigInteger&& other)
+    BigInteger& operator=(BigInteger&& other) noexcept
     {
         if (this == &other)
         {
@@ -55,8 +55,6 @@ public:
 
         _vecInt = std::move(other._vecInt);
         return *this;
-
-        // BigInteger(other); // почему так нельзя??
     }
 
     // оператор сложения двух больших чисел
